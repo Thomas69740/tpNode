@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+	head
+		style
+			include ../style/global.css
+			include ../style/delete.css
+		title Hello World!
+	body
+		include header.jade
+		#wrapper.wrapper
+			form(name="delete-emp", method="post", action="/collaborateurs/#{id}/delete")
+				span.label Motif de départ
+				input(type="text", name="motif")
+				input(id="Delete", type="submit", value="Envoyer")
+		#footer.footer

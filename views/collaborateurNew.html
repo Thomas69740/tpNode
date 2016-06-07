@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+	head
+		style
+			include ../style/global.css
+			include ../style/form.css
+		title Hello World!
+	body
+		include header.jade
+		#wrapper.wrapper
+			form(name="new-emp", method="post", action="/collaborateurs")
+				div.input
+					span.label Nom
+					input(type="text", name="nom")
+				div.input
+					span.label Prénom
+					input(type="text", name="prenom")
+				div.input
+					span.label Date de naissance
+					input(type="date", name="birthdate")
+				div.input
+					span.label Poste
+					input(type="text", name="poste")
+				div.input
+					span.label Salaire
+					input(type="number", name="salaire")
+				div.input
+					span.label Date d'entrée
+					input(type="date", name="startdate")
+				div.input
+					span.label Numéro d'arrivé
+					input(type="number", name="entrynumber")
+				div.input
+					span.label Email
+					input(type="text", name="email")
+				div.actions
+					input(id="addButton", type="submit", value="Ajouter")
+		#footer.footer

@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+	head
+		style
+			include ../style/global.css
+			include ../style/detail.css
+		title Hello World!
+	body
+		include header.jade
+		#wrapper.wrapper
+			each collab, i in collabs
+				#options
+					a(href='/collaborateurs/#{collab._id}/delete') Supprimer
+					a(href='/collaborateurs/#{collab._id}/edit') Editer
+				#infos-container
+					#row
+						span.label Nom
+						span= collab.nom
+					#row
+						span.label Prenom
+						span= collab.prenom
+					#row
+						span.label Date de naissance
+						span= collab.birthdate
+					#row
+						span.label Poste
+						span= collab.poste
+					#row
+						span.label Salaire
+						span= collab.salaire
+					#row
+						span.label Date d'arrivée
+						span= collab.startdate
+					#row
+						span.label Date de sortie
+						span= collab.enddate
+					#row
+						span.label Numero d'arrivée
+						span= collab.entrynumber
+					#row
+						span.label Email
+						span= collab.email
+		#footer.footer

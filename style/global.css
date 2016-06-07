@@ -1,0 +1,58 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	text-align: center;
+}
+
+.header {
+	height: 40px;
+	width: 100%;
+	background-color: #FF9843;
+}
+
+.wrapper {
+	min-height: calc(100% - 80px);
+	display: inline-block;
+}
+
+.wrapper:after {
+	content: "";
+	display: block;
+}
+.footer, .wrapper:after {
+  height: 142px; 
+}
+.footer {
+	background-color: #FF9843;
+	height: 40px;
+	width: 100%;
+}
+
+#menu {
+	width: 33%;
+	display: inline-block;
+	text-align: center;
+    margin: 10px 0px 0px 0px;
+}
+#menu a {
+	text-decoration: none;
+	color: black;
+}
+#menu a:hover {
+	text-decoration: none;
+	color: #ddddbb;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+table td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+}
+table th {
+	padding: 10px;
+}

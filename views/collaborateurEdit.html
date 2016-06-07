@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+	head
+		style
+			include ../style/global.css
+			include ../style/form.css
+		title Hello World!
+	body
+		include header.jade
+		#wrapper.wrapper
+			each collab, i in collabs
+				form(name="update-emp", method="post", action="/collaborateurs/#{id}/edit")
+					div.input
+						span.label Nom
+						input(type="text", name="nom", value="#{collab.nom}")
+					div.input
+						span.label Prénom
+						input(type="text", name="prenom", value="#{collab.prenom}")
+					div.input
+						span.label Date de naissance
+						input(type="date", name="birthdate", value="#{collab.birthdate}")
+					div.input
+						span.label Poste
+						input(type="text", name="poste", value="#{collab.poste}")
+					div.input
+						span.label Salaire
+						input(type="number", name="salaire", value="#{collab.salaire}")
+					div.input
+						span.label Date d'entrée
+						input(type="date", name="startdate", value="#{collab.startdate}")
+					div.input
+						span.label Numéro d'arrivé
+						input(type="number", name="entrynumber", value="#{collab.entrynumber}")
+					div.input
+						span.label Email
+						input(type="text", name="email", value="#{collab.email}")
+					div.actions
+						input(id="Modifier", type="submit", value="Modifier")
+		#footer.footer

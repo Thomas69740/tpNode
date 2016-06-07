@@ -1,0 +1,18 @@
+form {
+	margin-top: 20px;
+}
+.input {
+	display: block;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.input span {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.input input {
+	display: block;
+	min-width: 200px;
+}

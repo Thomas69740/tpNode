@@ -1,0 +1,24 @@
+#row {
+	display: block;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+#row span {
+	display: block;
+	min-width: 200px;
+	margin-bottom: 5px;
+}
+
+#row span.label {
+	font-weight: bold;
+}
+
+#options a {
+	min-width: 200 px;
+	padding: 10px;
+}
+#options {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

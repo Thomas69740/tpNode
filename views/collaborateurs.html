@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+	head
+		style
+			include ../style/global.css
+		title Hello World!
+	body
+		include header.jade
+		#wrapper.wrapper
+			table
+				thead
+				tr
+					th #
+					th Nom
+					th Prenom
+					th Date de naissance
+					th Poste
+					th Salaire
+					th Date d'entrée
+					th Date de sortie
+					th Motif de sortie
+					th Numero d'arrivée
+					th Email
+					th 
+				tbody
+					each collab, i in collabs
+						tr
+							td= i+1
+							td= collab.nom
+							td= collab.prenom
+							td= collab.birthdate
+							td= collab.poste
+							td= collab.salaire
+							td= collab.startdate
+							td= collab.enddate
+							td= collab.motif
+							td= collab.entrynumber
+							td= collab.email
+							td
+								a(href='/collaborateurs/#{collab._id}') Details
+		#footer.footer
