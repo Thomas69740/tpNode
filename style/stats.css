@@ -1,0 +1,14 @@
+.minItem div {
+	display: inline-block;
+	width: 200px;
+}
+
+.maxItem div {
+	display: inline-block;
+	width: 200px;
+}
+
+.average div {
+	display: inline-block;
+	width: 200px;
+}

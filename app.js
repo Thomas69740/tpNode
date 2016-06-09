@@ -20,15 +20,35 @@ app.get('/', function (req, res) {
 	res.render('index');
 });
 
+app.getStatsAndRender = function(result, res) {
+	var sumSalaire = 0;
+	var count = 0;
+	var minItem = null;
+	var maxItem = null;
+	result.forEach(function(item) {
+		if (minItem == null || minItem.salaire > item.salaire)
+			minItem = item;
+		if (maxItem == null || maxItem.salaire < item.salaire)
+			maxItem = item;
+		sumSalaire += parseInt(item.salaire);
+		count += 1;
+	});
+	console.log(minItem);
+	res.render('statistiques', {min : minItem, max: maxItem, average: (sumSalaire / count)});
+}
 app.get('/statistiques', function(req, res) {
-	res.render('statistiques');
+	app.db.open(function(err, db) {
+		var collection = db.collection('employe');
+		collection.find({}).toArray(function (err, result) {
+			app.getStatsAndRender(result, res);
+			db.close();
+		});
+	});
 });
 
 app.get('/collaborateurs', function(req, res) {
 	app.db.open(function(err, db) {
 		var collection = db.collection('employe');
-
-		// Insert some users
 		collection.find({}).toArray(function (err, result) {
 			res.render('collaborateurs', {collabs: result});
 			db.close();
@@ -43,7 +63,6 @@ app.get('/collaborateurs/new', function(req, res) {
 app.get('/collaborateurs/:id', function(req, res) {
 	app.db.open(function(err, db) {
 		var collection = db.collection('employe');
-		// Insert some users
 		collection.find({"_id" : new mongo.ObjectID(req.params.id)}).toArray(function (err, result) {
 			db.close();
 			res.render('collaborateurDetail', {collabs: result});
@@ -54,7 +73,6 @@ app.get('/collaborateurs/:id', function(req, res) {
 app.get('/collaborateurs/:id/edit', function(req, res) {
 	app.db.open(function(err, db) {
 		var collection = db.collection('employe');
-		// Insert some users
 		collection.find({"_id" : new mongo.ObjectID(req.params.id)}).toArray(function (err, result) {
 			db.close();
 			res.render('collaborateurEdit', {id: req.params.id, collabs: result});
@@ -95,10 +113,8 @@ app.post('/collaborateurs/:id/edit', function(req, res) {
 
 app.post('/collaborateurs', function(req, res) {
 	app.db.open(function(err, db) {
-		console.log(req.files);
 		var collection = db.collection('employe');
 
-		// Insert some users
 		collection.insertOne({
 			"nom" : req.body.nom,
 			"prenom" : req.body.prenom,

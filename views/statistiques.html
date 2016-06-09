@@ -3,8 +3,22 @@ html(lang="en")
 	head
 		style
 			include ../style/global.css
+			include ../style/stats.css
 		title Hello World!
 	body
 		include header.jade
 		#wrapper.wrapper
+			div.minItem
+				h3 Salaire minimum
+				div #{min.salaire}
+				div #{min.nom}
+				div #{min.prenom}
+			div.maxItem
+				h3 Salaire maximum
+				div #{max.salaire}
+				div #{max.nom}
+				div #{max.prenom}
+			div.average
+				h3 Salaire minimum
+				div #{average}
 		#footer.footer
